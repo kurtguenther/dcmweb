@@ -115,7 +115,9 @@ $.ready(new function(){
                         perf: perf,
                         width: width,
                         offset: offset,
+                        starttime: perf.starttime,
                         start: convertTimeStampToDate(perf.starttime),
+                        endtime: perf.endtime,
                         end: convertTimeStampToDate(perf.endtime, true)
                     };
                     //if(perf.venue_id == 94) {
@@ -129,9 +131,20 @@ $.ready(new function(){
                     var show_id = $(this).attr("data-show-id");
 
                     var show = shows[show_id];
+                    var starttime = $(this).attr("data-start-time");
+                    var endtime = $(this).attr("data-end-time");
 
                     $(".modal-show-title").html(show.show_name);
                     $(".modal-show-description").html(show.promo_blurb);
+                    $(".modal-show-times").html(convertTimeStampToDate(starttime) + " - " + convertTimeStampToDate(endtime,true));
+                    $(".modal-image").removeAttr("src");
+                    if(show.image){
+                        $(".modal-image").attr("src", show.image);
+                        $(".modal-image").show();
+                    } else {
+                        $(".modal-image").hide();
+                    }
+
                     $("#show-modal").modal({
                         keyboard: true
                     });
