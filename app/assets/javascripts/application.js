@@ -106,5 +106,10 @@ $.ready(new function(){
         //    axis: "x",
         //    containment:[-100000,0,75,0]
         //});
+
+        var foo = $("#location-panel");
+        $(window).scroll(function(){
+            foo.css("top", -1 * window.scrollY);
+        });
     });
 })

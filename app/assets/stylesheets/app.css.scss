@@ -1,0 +1,91 @@
+$standard-height: 125px;
+
+body {
+  font-family: sans-serif;
+  overflow-y: scroll;
+}
+
+.schedule-container {
+  margin-left: 75px;
+}
+
+.schedule {
+  width:100000px;
+  cursor: ew-resize;
+}
+
+
+.location-panel{
+  -webkit-transform: rotate(-90deg) translate(-100%, 0px);
+  -webkit-transform-origin: 0% 0%;
+  position: fixed;
+  left:0px;
+  top:0px;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.location {
+  background-color: #B00100;
+  color:#fff;
+  height:50px;
+  width:$standard-height;
+  text-align: center;
+  display: inline-block;
+  padding-top:25px;
+  border-right: #fff 1px solid;
+}
+
+.venue-row {
+  width:100%;
+  background-color: #cccccc;
+  overflow-x: scroll;
+  display: table;
+  border-bottom: #000 solid 1px;
+  position:relative;
+  height: $standard-height;
+}
+
+.show {
+  position: absolute;
+  padding-top: 5px;
+  padding-left: 5px;
+
+  border-left: #000 solid 1px;
+  border-right: #000 solid 1px;
+
+  height:119px;
+  background-color: #77ffff;
+  margin-left: 1px;
+  margin-right: 1px;
+  overflow: hidden;
+}
+
+.show-title {
+  /*white-space: nowrap;*/
+}
+
+.big-show {
+  width:100px;
+}
+
+$mobile-height: 250px;
+
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px) {
+
+  .show{
+    font-size:36px;
+    height: $mobile-height;
+  }
+
+  .venue-row {
+    height: $mobile-height;
+  }
+
+  .location {
+    width: $mobile-height;
+  }
+
+}

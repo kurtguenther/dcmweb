@@ -4,7 +4,7 @@
     <div id="schedule" class="schedule">
     </div>
 </div>
-<div class="location-panel">
+<div id="location-panel" class="location-panel">
 </div>
 
 <!--TEMPLATES!-->
@@ -14,11 +14,7 @@
   </div>
 </script>
 
-<script id="location-template" type="text/x-handlebars-template">
-  <div class="location" data-venue-id="{{id}}">
-    {{short_name}}
-  </div>
-</script>
+<script id="location-template" type="text/x-handlebars-template"><div class="location" data-venue-id="{{id}}">{{short_name}}</div></script>
 
 <script id="show-template" type="text/x-handlebars-template">
   <div class="show" data-show-id="{{id}}" style="left:{{offset}}px; width:{{width}}px">
