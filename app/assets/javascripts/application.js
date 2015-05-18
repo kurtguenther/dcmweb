@@ -14,6 +14,7 @@
 //= require jquery-ui
 //= require handlebars.min
 //= require jquery_ujs
+//= require bootstrap-sprockets
 //= require_tree .
 
 
@@ -122,6 +123,19 @@ $.ready(new function(){
                         container.append(showTemplate(vars));
                     //}
                 }
+
+                //click => show details
+                $(".show").click(function(){
+                    var show_id = $(this).attr("data-show-id");
+
+                    var show = shows[show_id];
+
+                    $(".modal-show-title").html(show.show_name);
+                    $(".modal-show-description").html(show.promo_blurb);
+                    $("#show-modal").modal({
+                        keyboard: true
+                    });
+                });
             }
         });
 
