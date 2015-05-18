@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<div class="schedule-container">
+    <div id="schedule" class="schedule">
+    </div>
+</div>
+<div class="location-panel">
+</div>
+
+<!--TEMPLATES!-->
+
+<script id="venue-row-template" type="text/x-handlebars-template">
+  <div id="venue_row_{{id}}"  class="venue-row" data-venue-id="{{id}}">
+  </div>
+</script>
+
+<script id="location-template" type="text/x-handlebars-template">
+  <div class="location" data-venue-id="{{id}}">
+    {{short_name}}
+  </div>
+</script>
+
+<script id="show-template" type="text/x-handlebars-template">
+  <div class="show" data-show-id="{{id}}" style="left:{{offset}}px; width:{{width}}px">
+    <div class="show-title">{{show.show_name}}</div>
+    <div class="show-time">{{start}}-{{end}}</div>
+  </div>
+</script>
+
