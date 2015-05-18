@@ -148,4 +148,16 @@ and (max-device-width : 667px) {
     width: $mobile-height;
   }
 
+  .modal-show-title {
+    font-size:40px;
+  }
+
+  .modal-show-description{
+    font-size: 40px;
+  }
+
+  .modal-content {
+    width: 900px;
+    margin-left: -150px;
+  }
 }
