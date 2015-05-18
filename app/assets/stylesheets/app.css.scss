@@ -3,6 +3,7 @@ $standard-height: 125px;
 body {
   font-family: sans-serif;
   overflow-y: scroll;
+  background-color: #B00100;
 }
 
 .schedule-container {
@@ -10,10 +11,26 @@ body {
 }
 
 .schedule {
-  width:100000px;
   cursor: ew-resize;
 }
 
+#time-bar {
+  background-color: #000;
+  color:#fff;
+  height:25px;
+}
+
+.hour-marker {
+  position: absolute;
+  border-right: #ffffff solid 3px;
+  padding-left: 5px;
+  height: 100%;
+  padding-top: 3px;
+}
+
+#location-panel-cap {
+  height:25px;
+}
 
 .location-panel{
   -webkit-transform: rotate(-90deg) translate(-100%, 0px);
@@ -23,6 +40,7 @@ body {
   top:0px;
   overflow: auto;
   white-space: nowrap;
+  margin-top:25px;
 }
 
 .location {
@@ -37,13 +55,13 @@ body {
 }
 
 .venue-row {
-  width:100%;
-  background-color: #cccccc;
   overflow-x: scroll;
   display: table;
   border-bottom: #000 solid 1px;
   position:relative;
   height: $standard-height;
+  background-color:#CCCCCC;
+  width: 100%;
 }
 
 .show {
@@ -74,6 +92,15 @@ $mobile-height: 250px;
 @media only screen
 and (min-device-width : 375px)
 and (max-device-width : 667px) {
+
+  #time-bar {
+    height: 75px;
+    font-size: 30px;
+  }
+
+  .location-panel{
+    margin-top:75px;
+  }
 
   .show{
     font-size:36px;

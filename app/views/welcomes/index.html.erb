@@ -2,9 +2,12 @@
 
 <div class="schedule-container">
     <div id="schedule" class="schedule">
+        <div id="time-bar"></div>
     </div>
 </div>
-<div id="location-panel" class="location-panel">
+<div class="location-panel-outer">
+    <div id="location-panel" class="location-panel">
+    </div>
 </div>
 
 <!--TEMPLATES!-->
@@ -15,6 +18,8 @@
 </script>
 
 <script id="location-template" type="text/x-handlebars-template"><div class="location" data-venue-id="{{id}}">{{short_name}}</div></script>
+
+<script id="hour-template" type="text/x-handlebars-template"><div class="hour-marker" style="left:{{offset}}px; width:{{width}}px">{{hour}}</div></script>
 
 <script id="show-template" type="text/x-handlebars-template">
   <div class="show" data-show-id="{{id}}" style="left:{{offset}}px; width:{{width}}px">
