@@ -37,13 +37,15 @@ function convertStartTimeToOffset(timestamp){
     return (timestamp - MARATHON_START_TIME) / 60.0 * WIDTH_PER_MINUTE;
 }
 
-function convertTimeStampToDate(timestamp, include_am_pm) {
-    if (include_am_pm) {
-        return moment(timestamp * 1000).format("h:mm a");
-    } else {
-        return moment(timestamp * 1000).format("h:mm");
-    }
+function convertTimeStampToDate(timestamp) {
+    return moment(timestamp * 1000).format("h:mm");
 }
+
+function convertTimeStampToHourMarker(timestamp) {
+    return moment(timestamp * 1000).format("ddd  h:mm a");
+}
+
+
 
 $.ready(new function(){
     $(function() {
@@ -77,7 +79,7 @@ $.ready(new function(){
                 //put up the hour markers
                 var hour_container = $("#time-bar");
                 for(var i = MARATHON_START_TIME; i <MARATHON_END_TIME; i+=60*60){
-                    var vals = {hour: convertTimeStampToDate(i, true),
+                    var vals = {hour: convertTimeStampToHourMarker(i),
                         width: convertDurationToWidth(60),
                         offset: convertStartTimeToOffset(i) + 75
                     }

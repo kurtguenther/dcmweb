@@ -6,6 +6,16 @@ body {
   background-color: #B00100;
 }
 
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0,0,0,.5);
+  -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+
 .schedule-container {
   margin-left: 75px;
 }
@@ -28,9 +38,6 @@ body {
   padding-top: 3px;
 }
 
-#location-panel-cap {
-  height:25px;
-}
 
 .location-panel{
   -webkit-transform: rotate(-90deg) translate(-100%, 0px);
@@ -40,7 +47,11 @@ body {
   top:0px;
   overflow: auto;
   white-space: nowrap;
-  margin-top:25px;
+}
+
+.location-panel:last-child{
+  padding-right: 25px;
+  background-color: #B00100;
 }
 
 .location {
@@ -98,10 +109,10 @@ and (max-device-width : 667px) {
     font-size: 30px;
   }
 
-  .location-panel{
-    margin-top:75px;
+  .location-panel:last-child{
+    padding-right: 75px;
   }
-
+  
   .show{
     font-size:36px;
     height: $mobile-height;
