@@ -42,6 +42,8 @@ body {
 .location-panel{
   -webkit-transform: rotate(-90deg) translate(-100%, 0px);
   -webkit-transform-origin: 0% 0%;
+  -moz-transform: rotate(-90deg) translate(-100%, 0px);
+  -moz-transform-origin: 0% 0%;
   position: fixed;
   left:0px;
   top:0px;
@@ -112,9 +114,9 @@ and (max-device-width : 667px) {
   .location-panel:last-child{
     padding-right: 75px;
   }
-  
+
   .show{
-    font-size:36px;
+    font-size:32px;
     height: $mobile-height;
   }
 

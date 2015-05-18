@@ -37,12 +37,17 @@ function convertStartTimeToOffset(timestamp){
     return (timestamp - MARATHON_START_TIME) / 60.0 * WIDTH_PER_MINUTE;
 }
 
-function convertTimeStampToDate(timestamp) {
-    return moment(timestamp * 1000).format("h:mm");
+function convertTimeStampToDate(timestamp, include_am_pm) {
+    if(include_am_pm) {
+        return moment(timestamp * 1000).format("h:mm a");
+    } else {
+        return moment(timestamp * 1000).format("h:mm");
+    }
+
 }
 
 function convertTimeStampToHourMarker(timestamp) {
-    return moment(timestamp * 1000).format("ddd  h:mm a");
+    return moment(timestamp * 1000).format("ddd  h:mm A");
 }
 
 
@@ -110,7 +115,7 @@ $.ready(new function(){
                         width: width,
                         offset: offset,
                         start: convertTimeStampToDate(perf.starttime),
-                        end: convertTimeStampToDate(perf.endtime)
+                        end: convertTimeStampToDate(perf.endtime, true)
                     };
                     //if(perf.venue_id == 94) {
                         var container = $("#venue_row_" + perf.venue_id);
