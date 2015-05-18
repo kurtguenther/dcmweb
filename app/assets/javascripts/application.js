@@ -24,7 +24,9 @@ var venues = [];
 var performances = [];
 
 
-var GLOBAL_START_TIME = 1435348800;
+var MARATHON_START_TIME = 1435348800;
+var MARATHON_END_TIME = 1435622340;
+
 var WIDTH_PER_MINUTE = 8.0;
 
 function convertDurationToWidth(durationInMinutes){
@@ -32,7 +34,7 @@ function convertDurationToWidth(durationInMinutes){
 };
 
 function convertStartTimeToOffset(timestamp){
-    return (timestamp - GLOBAL_START_TIME) / 60.0 * WIDTH_PER_MINUTE;
+    return (timestamp - MARATHON_START_TIME) / 60.0 * WIDTH_PER_MINUTE;
 }
 
 function convertTimeStampToDate(timestamp){
@@ -55,6 +57,9 @@ $.ready(new function(){
                 }
 
                 console.log("shows hash created");
+
+                //Make the schedule oh so wide
+                $("#schedule").css("width", convertStartTimeToOffset(MARATHON_END_TIME) + "px");
 
                 var venueRowTemplate = Handlebars.compile($("#venue-row-template").html());
                 var locationTemplate = Handlebars.compile($("#location-template").html());
