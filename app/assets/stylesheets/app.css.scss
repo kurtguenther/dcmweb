@@ -4,6 +4,10 @@
 
 $standard-height: 125px;
 
+* {
+  box-sizing: content-box;
+}
+
 body {
   font-family: sans-serif;
   overflow-y: scroll;
@@ -97,7 +101,6 @@ body {
   margin-right: 1px;
   overflow: hidden;
 
-  box-sizing: content-box;
 }
 
 .show-title {
