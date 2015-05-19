@@ -91,6 +91,7 @@ $.ready(new function(){
         var target = $("#master-spin");
         var spinner = new Spinner({color: '#fff'}).spin(target[0]);
 
+        
         $.ajax({
             url: "/data",
             success: function(data) {
