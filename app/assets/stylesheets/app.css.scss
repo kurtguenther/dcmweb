@@ -196,7 +196,11 @@ and (max-device-width : 667px) {
   }
 
   .location-panel {
-    padding-right:122px;
+    padding-right:140px;
+  }
+
+  .schedule-container{
+    margin-top: 65px;
   }
 
   .show{
@@ -230,8 +234,8 @@ and (max-device-width : 667px) {
     font-size:40px;
   }
 
-  .header input {
-    height:100%;
+  .header {
+    height:65px;
   }
 
 }
