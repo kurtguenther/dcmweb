@@ -27,10 +27,28 @@ body {
 
 .schedule-container {
   margin-left: 75px;
+  margin-top:45px;
 }
 
 .schedule {
   cursor: ew-resize;
+}
+
+.header {
+  position: fixed;
+  top:0px;
+  left:0px;
+  height:45px;
+  width:100%;
+  background-color: #000000;
+  color:#fff;
+  font-size: 26px;
+  border-bottom: solid 1px #fff;
+}
+
+li.ui-menu-item {
+  background:#fff;
+  font-size:26px;
 }
 
 #time-bar {
@@ -61,6 +79,15 @@ body {
   top:0px;
   overflow: auto;
   white-space: nowrap;
+  padding-right:70px;
+  background-color: #B00100;
+}
+
+.header input {
+  color:#000;
+  margin-left:8px;
+  margin-right:15px;
+  width:400px;
 }
 
 .location-panel:last-child{
@@ -108,6 +135,12 @@ body {
   background-origin: border-box;
   background-repeat-x: no-repeat;
   background-size: contain;
+}
+
+.show.search-result-on{
+  background: none;
+  background-color: #ffffff;
+  color:#000;
 }
 
 .show-title {
@@ -160,8 +193,8 @@ and (max-device-width : 667px) {
     font-size: 30px;
   }
 
-  .location-panel:last-child{
-    padding-right: 75px;
+  .location-panel {
+    padding-right:122px;
   }
 
   .show{
@@ -189,4 +222,14 @@ and (max-device-width : 667px) {
     width: 900px;
     margin-left: -150px;
   }
+
+  li.ui-menu-item {
+    background:#fff;
+    font-size:40px;
+  }
+
+  .header input {
+    height:100%;
+  }
+
 }

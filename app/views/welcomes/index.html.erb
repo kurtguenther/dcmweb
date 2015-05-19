@@ -1,14 +1,14 @@
+
 <div class="schedule-container">
     <div id="schedule" class="schedule">
         <div id="time-bar"></div>
     </div>
 </div>
-<div class="location-panel-outer">
-    <div id="location-panel" class="location-panel">
-    </div>
+<div id="location-panel" class="location-panel">
 </div>
-
-    <div class="modal" id="show-modal" tabindex="-1">
+<div class="header">Unofficial Del Close Marathon Schedule <input id="search-box" type="text" placeholder="search...">
+</div>
+    <div class="modal fade" id="show-modal" tabindex="-1">
       <div class="modal-dialog" >
         <div class="modal-content">
             <div class="modal-body">
@@ -36,7 +36,7 @@
 <script id="hour-template" type="text/x-handlebars-template"><div class="hour-marker" style="left:{{offset}}px; width:{{width}}px">{{hour}}</div></script>
 
 <script id="show-template" type="text/x-handlebars-template">
-  <div class="show" data-show-id="{{show.id}}" data-start-time="{{starttime}}" data-end-time="{{endtime}}" style="left:{{offset}}px; width:{{width}}px">
+  <div class="show" data-performance-id="{{perf.id}}" data-show-id="{{show.id}}" data-start-time="{{starttime}}" data-end-time="{{endtime}}" style="left:{{offset}}px; width:{{width}}px">
     <div class="show-title">{{show.show_name}}</div>
     <div class="show-time">{{start}}-{{end}}</div>
   </div>

@@ -51,6 +51,38 @@ function convertTimeStampToHourMarker(timestamp) {
     return moment(timestamp * 1000).format("ddd  h:mm A");
 }
 
+function navigateToShow(showId){
+    console.log("navigating to " + showId);
+
+    for(var i = 0; i < performances.length; i++){
+        if(performances[i].show_id == showId){
+            var perf = performances[i];
+            var leftOffset = convertStartTimeToOffset(perf.starttime);
+            var topOffset = $("#venue_row_" + perf.venue_id).offset().top;
+
+            //Account for the header
+            if(perf.venue_id != 94){
+                topOffset = topOffset - 50;
+            } else {
+                topOffset = topOffset - 75;
+            }
+
+            $('html, body').animate({
+                scrollLeft: leftOffset
+            }, 300, function() {
+                $('html, body').animate({
+                    scrollTop: topOffset
+                }, 300, function() {
+                        $('[data-performance-id="'+ perf.id + '"]').click();
+
+                        $('[data-performance-id="'+ perf.id + '"]').addClass("search-result-on");
+
+                    }
+                );
+            });
+        }
+    }
+}
 
 
 $.ready(new function(){
@@ -65,6 +97,8 @@ $.ready(new function(){
 
                 for(var i = 0; i < api_data.Shows.length; i++){
                     var show = api_data.Shows[i];
+                    api_data.Shows[i]["label"] = api_data.Shows[i].show_name;
+                    api_data.Shows[i]["value"]= api_data.Shows[i].id;
                     shows["" + show.id] = show;
                 }
 
@@ -128,6 +162,9 @@ $.ready(new function(){
 
                 //click => show details
                 $(".show").click(function(){
+                    //clear any other highlight;
+                    $('.search-result-on').removeClass("search-result-on");
+
                     var show_id = $(this).attr("data-show-id");
 
                     var show = shows[show_id];
@@ -148,6 +185,15 @@ $.ready(new function(){
                     $("#show-modal").modal({
                         keyboard: true
                     });
+                });
+
+                $("#search-box").autocomplete({
+                    source: api_data.Shows,
+                    select: function(event, ui){
+                        $("#search-box").val("");
+                        navigateToShow(ui.item.value);
+                        return false;
+                    }
                 });
             }
         });
