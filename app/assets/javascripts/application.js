@@ -14,6 +14,7 @@
 //= require jquery-ui
 //= require handlebars.min
 //= require jquery_ujs
+//= require spin.min
 //= require bootstrap-sprockets
 //= require_tree .
 
@@ -87,11 +88,18 @@ function navigateToShow(showId){
 
 $.ready(new function(){
     $(function() {
+        var target = $("#master-spin");
+        var spinner = new Spinner({color: '#fff'}).spin(target[0]);
+
         $.ajax({
             url: "/data",
             success: function(data) {
                 console.log('data loaded');
                 api_data = data.data;
+
+                spinner.stop();
+
+                $("#master-spin").stop();
 
                 venues = api_data.Venues;
 
