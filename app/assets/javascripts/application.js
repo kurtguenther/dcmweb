@@ -191,6 +191,13 @@ $.ready(new function(){
                         $(".modal-image").hide();
                     }
 
+                    var castList = $(".modal-cast");
+                    castList.empty();
+                    for(var k in show.cast) {
+                        console.log(k);
+                        castList.append("<li>" + show.cast[k].first + " " + show.cast[k].last + "</li>");
+                    }
+
                     $("#show-modal").modal({
                         keyboard: true
                     });
